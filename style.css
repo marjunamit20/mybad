@@ -1,0 +1,320 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+  background:linear-gradient(135deg,#ffdce8,#dcefff);
+  position:relative;
+}
+
+/* BLUR BACKGROUND */
+
+.blur{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(70px);
+  opacity:0.5;
+  z-index:-1;
+}
+
+.blur1{
+  width:300px;
+  height:300px;
+  background:#ff8fc7;
+  top:-100px;
+  left:-100px;
+}
+
+.blur2{
+  width:300px;
+  height:300px;
+  background:#7ecbff;
+  bottom:-100px;
+  right:-100px;
+}
+
+/* INTRO SCREEN */
+
+#introScreen{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ffdce8,#dcefff);
+  z-index:999;
+}
+
+.intro-box{
+  text-align:center;
+  animation:zoomIn 1s ease;
+  padding:20px;
+}
+
+.intro-cat{
+  width:170px;
+  height:170px;
+  margin:auto;
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+.intro-cat img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.intro-title{
+  font-size:3rem;
+  margin-top:15px;
+  color:#222;
+}
+
+.intro-text{
+  margin-top:15px;
+  font-size:18px;
+  color:#555;
+}
+
+.start-btn{
+  margin-top:35px;
+  border:none;
+  padding:15px 40px;
+  border-radius:50px;
+  background:linear-gradient(135deg,#ff4f8b,#ff7eb3);
+  color:white;
+  font-size:18px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.start-btn:hover{
+  transform:scale(1.08);
+}
+
+/* MAIN CARD */
+
+.container{
+  width:100%;
+  max-width:430px;
+  background:rgba(255,255,255,0.35);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.4);
+  border-radius:35px;
+  padding:35px 25px;
+  text-align:center;
+  box-shadow:0 10px 40px rgba(0,0,0,0.15);
+  display:none;
+}
+
+/* CAT IMAGE */
+
+.cat-box{
+  width:190px;
+  height:190px;
+  margin:auto;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,0.2);
+}
+
+.cat-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* TEXT */
+
+.title{
+  margin-top:25px;
+  font-size:3rem;
+  line-height:1.2;
+  color:#222;
+  font-weight:700;
+}
+
+.subtitle{
+  margin-top:15px;
+  color:#555;
+  font-size:18px;
+}
+
+/* BUTTON AREA */
+
+.button-area{
+  position:relative;
+  width:100%;
+  height:220px;
+  margin-top:30px;
+}
+
+/* BUTTONS */
+
+.btn{
+  border:none;
+  padding:16px 38px;
+  border-radius:50px;
+  color:white;
+  font-size:22px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.25s;
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.btn:hover{
+  transform:scale(1.08);
+}
+
+.yes-btn{
+  background:linear-gradient(135deg,#00c853,#4cff88);
+}
+
+.no-btn{
+  background:linear-gradient(135deg,#ff416c,#ff4b2b);
+}
+
+/* BUTTON POSITION */
+
+#yesCard,
+#noCard{
+  position:absolute;
+}
+
+#yesCard{
+  left:28%;
+  top:50%;
+  transform:translate(-50%,-50%);
+}
+
+#noCard{
+  left:72%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  transition:0.18s;
+}
+
+/* SUCCESS SCREEN */
+
+#screen2{
+  display:none;
+}
+
+.success-title{
+  font-size:3rem;
+  color:#ff2e63;
+  animation:pop 0.7s ease;
+}
+
+.success-text{
+  margin-top:18px;
+  font-size:18px;
+  color:#555;
+}
+
+.success-img{
+  margin-top:25px;
+}
+
+/* ANIMATIONS */
+
+@keyframes heartbeat{
+
+  0%{
+    transform:scale(1);
+  }
+
+  25%{
+    transform:scale(1.08);
+  }
+
+  50%{
+    transform:scale(1);
+  }
+
+  75%{
+    transform:scale(1.08);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+}
+
+@keyframes zoomIn{
+  from{
+    transform:scale(0.7);
+    opacity:0;
+  }
+
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+@keyframes pop{
+  from{
+    transform:scale(0.5);
+    opacity:0;
+  }
+
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+  .container{
+    max-width:95%;
+    padding:30px 18px;
+  }
+
+  .cat-box{
+    width:160px;
+    height:160px;
+  }
+
+  .title{
+    font-size:2.4rem;
+  }
+
+  .subtitle{
+    font-size:16px;
+  }
+
+  .btn{
+    padding:14px 30px;
+    font-size:18px;
+  }
+
+  .button-area{
+    height:200px;
+  }
+
+  .intro-title{
+    font-size:2.3rem;
+  }
+
+  .intro-text{
+    font-size:16px;
+  }
+
+}
