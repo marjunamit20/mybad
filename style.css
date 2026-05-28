@@ -4,68 +4,113 @@
   box-sizing:border-box;
 }
 
+html{
+  overflow-x:hidden;
+}
+
 body{
-  min-height:100vh;
+
+  min-height:100dvh;
+
   display:flex;
   justify-content:center;
   align-items:center;
-  font-family:'Poppins',sans-serif;
+
   overflow:hidden;
-  background:linear-gradient(135deg,#ffdce8,#dcefff);
+
+  padding:20px;
+
+  font-family:'Poppins',sans-serif;
+
+  background:linear-gradient(
+    135deg,
+    #ffdce8,
+    #dcefff
+  );
+
   position:relative;
 }
 
-/* BLUR BACKGROUND */
+/* REMOVE MOBILE TAP HIGHLIGHT */
+
+button{
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+
+/* BACKGROUND BLURS */
 
 .blur{
   position:absolute;
   border-radius:50%;
-  filter:blur(70px);
-  opacity:0.5;
+  filter:blur(90px);
+  opacity:0.55;
   z-index:-1;
 }
 
 .blur1{
-  width:300px;
-  height:300px;
+  width:320px;
+  height:320px;
   background:#ff8fc7;
-  top:-100px;
-  left:-100px;
+  top:-120px;
+  left:-120px;
 }
 
 .blur2{
-  width:300px;
-  height:300px;
+  width:320px;
+  height:320px;
   background:#7ecbff;
-  bottom:-100px;
-  right:-100px;
+  bottom:-120px;
+  right:-120px;
 }
 
 /* INTRO SCREEN */
 
 #introScreen{
+
   position:fixed;
   inset:0;
+
   display:flex;
   justify-content:center;
   align-items:center;
-  background:linear-gradient(135deg,#ffdce8,#dcefff);
+
+  background:linear-gradient(
+    135deg,
+    #ffdce8,
+    #dcefff
+  );
+
   z-index:999;
+
+  padding:20px;
 }
 
 .intro-box{
   text-align:center;
+  width:100%;
+  max-width:420px;
+
   animation:zoomIn 1s ease;
-  padding:20px;
 }
 
+/* INTRO CAT */
+
 .intro-cat{
-  width:170px;
-  height:170px;
+
+  width:min(45vw,180px);
+
+  aspect-ratio:1/1;
+
   margin:auto;
+
   border-radius:30px;
+
   overflow:hidden;
+
   box-shadow:0 12px 30px rgba(0,0,0,0.15);
+
+  animation:float 3s ease-in-out infinite;
 }
 
 .intro-cat img{
@@ -74,60 +119,98 @@ body{
   object-fit:cover;
 }
 
+/* INTRO TEXT */
+
 .intro-title{
-  font-size:3rem;
-  margin-top:15px;
+  margin-top:18px;
+  font-size:clamp(2rem,8vw,3rem);
   color:#222;
 }
 
 .intro-text{
-  margin-top:15px;
-  font-size:18px;
+  margin-top:12px;
+  font-size:clamp(15px,4vw,18px);
   color:#555;
 }
 
+/* START BUTTON */
+
 .start-btn{
+
   margin-top:35px;
+
   border:none;
-  padding:15px 40px;
+
+  padding:15px 35px;
+
   border-radius:50px;
-  background:linear-gradient(135deg,#ff4f8b,#ff7eb3);
+
+  background:linear-gradient(
+    135deg,
+    #ff4f8b,
+    #ff7eb3
+  );
+
   color:white;
+
   font-size:18px;
   font-weight:600;
+
   cursor:pointer;
-  transition:0.3s;
+
+  transition:0.25s;
+
   box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
 .start-btn:hover{
-  transform:scale(1.08);
+  transform:scale(1.05);
+}
+
+.start-btn:active{
+  transform:scale(0.95);
 }
 
 /* MAIN CARD */
 
 .container{
-  width:100%;
-  max-width:430px;
+
+  width:min(92vw,430px);
+
   background:rgba(255,255,255,0.35);
-  backdrop-filter:blur(15px);
+
+  backdrop-filter:blur(20px);
+
   border:1px solid rgba(255,255,255,0.4);
+
   border-radius:35px;
-  padding:35px 25px;
+
+  padding:35px 22px;
+
   text-align:center;
+
   box-shadow:0 10px 40px rgba(0,0,0,0.15);
+
   display:none;
 }
 
 /* CAT IMAGE */
 
 .cat-box{
-  width:190px;
-  height:190px;
+
+  width:min(45vw,190px);
+
+  aspect-ratio:1/1;
+
   margin:auto;
+
   border-radius:28px;
+
   overflow:hidden;
+
   box-shadow:0 12px 30px rgba(0,0,0,0.2);
+
+  animation:float 3s ease-in-out infinite;
 }
 
 .cat-box img{
@@ -139,8 +222,8 @@ body{
 /* TEXT */
 
 .title{
-  margin-top:25px;
-  font-size:3rem;
+  margin-top:22px;
+  font-size:clamp(2rem,8vw,3rem);
   line-height:1.2;
   color:#222;
   font-weight:700;
@@ -149,7 +232,7 @@ body{
 .subtitle{
   margin-top:15px;
   color:#555;
-  font-size:18px;
+  font-size:clamp(15px,4vw,18px);
 }
 
 /* BUTTON AREA */
@@ -157,34 +240,61 @@ body{
 .button-area{
   position:relative;
   width:100%;
-  height:220px;
+  height:230px;
   margin-top:30px;
 }
 
 /* BUTTONS */
 
 .btn{
+
   border:none;
-  padding:16px 38px;
+
+  padding:14px 28px;
+
   border-radius:50px;
+
   color:white;
-  font-size:22px;
+
+  font-size:clamp(16px,4vw,22px);
+
   font-weight:600;
+
   cursor:pointer;
+
   transition:0.25s;
+
   box-shadow:0 10px 20px rgba(0,0,0,0.2);
+
+  min-width:110px;
 }
 
 .btn:hover{
-  transform:scale(1.08);
+  transform:scale(1.05);
 }
+
+.btn:active{
+  transform:scale(0.95);
+}
+
+/* YES BUTTON */
 
 .yes-btn{
-  background:linear-gradient(135deg,#00c853,#4cff88);
+  background:linear-gradient(
+    135deg,
+    #00c853,
+    #4cff88
+  );
 }
 
+/* NO BUTTON */
+
 .no-btn{
-  background:linear-gradient(135deg,#ff416c,#ff4b2b);
+  background:linear-gradient(
+    135deg,
+    #ff416c,
+    #ff4b2b
+  );
 }
 
 /* BUTTON POSITION */
@@ -214,14 +324,14 @@ body{
 }
 
 .success-title{
-  font-size:3rem;
+  font-size:clamp(2rem,8vw,3rem);
   color:#ff2e63;
   animation:pop 0.7s ease;
 }
 
 .success-text{
   margin-top:18px;
-  font-size:18px;
+  font-size:clamp(15px,4vw,18px);
   color:#555;
 }
 
@@ -231,30 +341,8 @@ body{
 
 /* ANIMATIONS */
 
-@keyframes heartbeat{
-
-  0%{
-    transform:scale(1);
-  }
-
-  25%{
-    transform:scale(1.08);
-  }
-
-  50%{
-    transform:scale(1);
-  }
-
-  75%{
-    transform:scale(1.08);
-  }
-
-  100%{
-    transform:scale(1);
-  }
-}
-
 @keyframes zoomIn{
+
   from{
     transform:scale(0.7);
     opacity:0;
@@ -267,6 +355,7 @@ body{
 }
 
 @keyframes pop{
+
   from{
     transform:scale(0.5);
     opacity:0;
@@ -278,43 +367,35 @@ body{
   }
 }
 
+@keyframes float{
+
+  0%,100%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-8px);
+  }
+}
+
 /* MOBILE */
 
 @media(max-width:500px){
 
   .container{
-    max-width:95%;
-    padding:30px 18px;
-  }
-
-  .cat-box{
-    width:160px;
-    height:160px;
-  }
-
-  .title{
-    font-size:2.4rem;
-  }
-
-  .subtitle{
-    font-size:16px;
-  }
-
-  .btn{
-    padding:14px 30px;
-    font-size:18px;
+    padding:28px 18px;
+    border-radius:28px;
   }
 
   .button-area{
-    height:200px;
+    height:210px;
   }
 
-  .intro-title{
-    font-size:2.3rem;
+  #yesCard{
+    left:30%;
   }
 
-  .intro-text{
-    font-size:16px;
+  #noCard{
+    left:70%;
   }
-
 }

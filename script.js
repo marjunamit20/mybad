@@ -1,15 +1,17 @@
-/* ELEMENTS */
-
 const introScreen = document.getElementById("introScreen");
+
 const startBtn = document.getElementById("startBtn");
 
 const screen1 = document.getElementById("screen1");
+
 const screen2 = document.getElementById("screen2");
 
 const noCard = document.getElementById("noCard");
+
 const noBtn = document.getElementById("noBtn");
 
 const yesBtn = document.getElementById("yesBtn");
+
 const btnArea = document.getElementById("btnArea");
 
 /* OPEN INTRO */
@@ -17,6 +19,7 @@ const btnArea = document.getElementById("btnArea");
 startBtn.addEventListener("click",()=>{
 
   introScreen.style.transition = "0.6s";
+
   introScreen.style.opacity = "0";
 
   setTimeout(()=>{
@@ -50,46 +53,67 @@ startBtn.addEventListener("click",()=>{
 function moveNoButton(){
 
   const area = btnArea.getBoundingClientRect();
+
   const card = noCard.getBoundingClientRect();
 
-  const maxX = area.width - card.width;
-  const maxY = area.height - card.height;
+  const padding = 10;
 
-  let randomX = Math.random() * maxX;
-  let randomY = Math.random() * maxY;
+  const maxX =
+    area.width - card.width - padding;
 
-  if(randomX < area.width / 2){
-    randomX += 100;
-  }
+  const maxY =
+    area.height - card.height - padding;
+
+  let randomX =
+    Math.random() * maxX;
+
+  let randomY =
+    Math.random() * maxY;
+
+  randomX =
+    Math.max(padding, randomX);
+
+  randomY =
+    Math.max(padding, randomY);
 
   noCard.style.left = randomX + "px";
-  noCard.style.top = randomY + "px";
 
+  noCard.style.top = randomY + "px";
 }
 
 /* DESKTOP */
 
-noBtn.addEventListener("mouseenter",moveNoButton);
+noBtn.addEventListener(
+  "mouseenter",
+  moveNoButton
+);
 
 /* MOBILE */
 
-noBtn.addEventListener("touchstart",(e)=>{
-  e.preventDefault();
-  moveNoButton();
-});
+noBtn.addEventListener(
+  "touchstart",
+  (e)=>{
+    e.preventDefault();
+    moveNoButton();
+  }
+);
 
 /* CLICK NO */
 
-noBtn.addEventListener("click",(e)=>{
-  e.preventDefault();
-  moveNoButton();
-});
+noBtn.addEventListener(
+  "click",
+  (e)=>{
+    e.preventDefault();
+    moveNoButton();
+  }
+);
 
 /* YES BUTTON */
 
 yesBtn.addEventListener("click",()=>{
 
   screen1.style.display = "none";
+
   screen2.style.display = "block";
 
   screen2.animate([
